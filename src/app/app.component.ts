@@ -5,38 +5,48 @@ import { User } from './model/user';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angularPipe';
+  title = 'angular-pipe';
 
-  public listData: any = {};
+  public users: User[] = []
 
-  constructor(private http: HttpClient) {
-    this.listData.background = 'lightgreen';
-    this.listData.usersArray = this.users;
+  public listData:ListData;
+
+
+  constructor(private http: HttpClient){
+    // this.listData.background = "green"
+    // this.listData.usersArray = this.users;
+    this.listData = {background: "green", usersArray: this.users}
   }
+
   ngOnInit(): void {
-    this.http.get<User[]>('./assets/users.json').subscribe((users) => {
-      this.users = users;
+    this.http.get<User[]>("./assets/users.json")
+    .subscribe(users => {
+      this.users = users
       this.listData.usersArray = this.users;
-    });
+    })
   }
 
-  public users: User[] = [];
 
-  onUserChanged() {
-    this.users[0].name = 'peeeeee';
-    this.listData.usersArray = this.users;
+  onUserChanged(){
+    this.users[0].name = "marta"
   }
 
-  onUserAdded(user: User) {
+  onUserAdded(user: User){
     this.users.push(user);
     this.listData.usersArray = this.users;
   }
 
-  onArrayChanged(usersArray: User[]) {
+  onArrayChanged(usersArray: User[]){
     this.users = usersArray;
-    this.listData.usersArray = this.users; //you can spread this.users to make sure it's recreated, it can help if input breaks
+    this.listData.usersArray = this.users;
   }
+
+}
+
+export interface ListData{
+  background: string;
+  usersArray: User[];
 }
