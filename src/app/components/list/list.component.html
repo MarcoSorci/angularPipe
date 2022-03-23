@@ -1,0 +1,3 @@
+<ul *ngIf="userList">
+    <li [ngStyle]="{'background-color': listBackgroundColor}" *ngFor="let user of userList">{{user.name | capitalizeFirst}}</li>
+</ul>
