@@ -25,3 +25,6 @@ export class OrderUsersPipe implements PipeTransform {
   }
 
 }
+
+//directive, resize elements, by default display block, but it can take inline block, then I can give width and height to size tgem
+//simulated ngif, called exist, if pass true exists if false doesn't
