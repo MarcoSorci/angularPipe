@@ -1,4 +1,4 @@
 <ul *ngIf="userList">
-    <li [ngStyle]="{'background-color': listBackgroundColor}" *ngFor="let user of userList | orderByNumber:'name'">{{user.ranking}} - {{user.name | capitalizeFirst}}</li>
+    <li [ngStyle]="{'background-color': listBackgroundColor}" *ngFor="let user of userList | orderByNumber:'name'">
+        {{user.ranking}} - {{user.name | capitalizeFirst}}</li>
 </ul>
-

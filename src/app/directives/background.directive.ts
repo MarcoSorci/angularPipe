@@ -16,7 +16,7 @@ export class BackgroundDirective implements OnInit {
       this.elem.nativeElement,
       'background-color',
       this.appBackground
-    )
+    );
     this.renderer.setStyle(
       this.elem.nativeElement,
       'color',
